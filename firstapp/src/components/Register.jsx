@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom' 
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import "./Register.css"
 export default function Register() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -22,13 +24,23 @@ console.log(import.meta.env.VITE_API_BACKEND)
       .then((res)=>{
         console.log(res.data)
         if(res.data.status===201){
-          alert("register successful")
+         
+          Swal.fire({
+  title: "Registered successfully!",
+  icon: "success",
+  draggable: true
+});
           navigate("/login")
         }
       })
       .catch((err)=>{
-        alert("got the error while registering open console and check the response data")
-      })
+      
+        Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: err.response.data.message,
+})
+  })
 
     setName("")
     setEmail("")

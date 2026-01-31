@@ -20,4 +20,5 @@ const Product= mongoose.Schema({
         type:Date
     },
 })
-module.exports= mongoose.model("Product",Product)
+
+module.exports=mongoose.model("Product",Product)
