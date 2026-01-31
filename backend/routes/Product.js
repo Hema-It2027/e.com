@@ -23,8 +23,6 @@ router.post("/add",isAdmin,async (req,res)=>{
     }
 })
 
-
-
 router.get("/",async (req,res)=>{
     try{
         const products= await Product.find()
