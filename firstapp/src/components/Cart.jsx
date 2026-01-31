@@ -16,7 +16,7 @@ export default function Cart() {
       return;
     }
     try {
-      const res = await axios.get("http://localhost:4000/api/cart", {
+      const res = await axios.get("https://e-com-oy2l.onrender.com/api/cart", {
         params: { userId },
       });
       if (res.status === 200) {
@@ -31,7 +31,7 @@ export default function Cart() {
   async function removeFromCart(productId) {
     const userId = localStorage.getItem("userId");
     try {
-      const res = await axios.delete("http://localhost:4000/api/cart/remove", {
+      const res = await axios.delete("https://e-com-oy2l.onrender.com/api/cart/remove", {
         params: { userId, productId },
       });
       if (res.status === 200) {
